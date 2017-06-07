@@ -2,13 +2,14 @@
 
 
 if ! is_mac; then
-    alias ls='ls -AlF --color=auto'
+    alias ls='ls -lF --color=auto'
 fi
 
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 alias l='ls -l'
+alias la='l -a'
 alias v='vim'
 alias tf='tail -f'
 # Enables alias expansion while using sudo
