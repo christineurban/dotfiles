@@ -44,6 +44,11 @@ is_ubuntu() {
     return 1
 }
 
+git_key() {
+    eval `ssh-agent -s`
+    ssh-add -k ~/.ssh/id_github
+}
+
 if is_mac; then
     # General auto-complete
     if [ -f `brew --prefix`/etc/bash_completion ]; then
