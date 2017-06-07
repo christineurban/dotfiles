@@ -1,0 +1,45 @@
+[alias]
+    ci = commit
+    cif = "!git ci --fixup HEAD"
+    cifa = "!git ci -a --fixup HEAD"
+    co = checkout
+    st = status
+
+    cp = cherry-pick
+
+    d = diff
+    dc = diff --cached
+    dh = diff HEAD~1
+    dw = diff -w
+
+    aa = add -A
+
+    p = pull
+
+    f = fetch
+    fp = fetch -p
+    fap = fetch --all -p
+
+    b = branch
+    bl = branch -l
+    bd = branch -d
+    bD = branch -D
+
+    lm = log master..
+    l1 = log --oneline                                                                                                                                                                                                                                   
+    l1m = log --oneline master..
+
+    r = rebase
+    rb = "!git rebase -i $(git merge-base HEAD @{-1})"
+    rba = "!git rebase -i $(git merge-base HEAD @{-1}) --autosquash"
+    rc = rebase --continue
+    ra = rebase --abort
+    aarc = "!git aa; git rc"
+                        
+[user]
+	name = Justin Johnson
+	email = booleangate@gmail.com
+[push]
+	default = simple
+[credential]
+	helper = osxkeychain
