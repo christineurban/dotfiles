@@ -52,13 +52,13 @@ install_vim_vundle() {
 install_vim_ycm() {
     ## see https://github.com/Valloric/YouCompleteMe#full-installation-guide
     # Uncomment this business if you need C-family auto-completion
-    #if ! command -v cmake >/dev/null; then
-    #    if is_mac; then
-    #        brew install cmake
-    #    else
-    #        sudo apt-get install cmake
-    #    fi
-    #fi
+    if ! command -v cmake >/dev/null; then
+        if is_mac; then
+            brew install cmake
+        else
+            sudo apt-get install cmake
+        fi
+    fi
     #mkdir /tmp/ycm_build
     #cd /tmp/ycm_build
     #cmake -G "Unix Makefiles" . ~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp
