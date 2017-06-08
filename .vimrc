@@ -10,7 +10,6 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 Plugin 'scrooloose/syntastic'
 Plugin 'tomasr/molokai'
-Plugin 'Valloric/YouCompleteMe'
 Plugin 'gko/vim-coloresque'
 Plugin 'groenewege/vim-less.git'
 Plugin 'ctrlpvim/ctrlp.vim'
