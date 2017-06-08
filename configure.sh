@@ -24,8 +24,8 @@ configure_git() {
         exit
     fi
 
-    # Defined in .bashrc
-    git_key
+    eval `ssh-agent -s`
+    ssh-add -k ~/.ssh/id_github
 }
 
 configure_npm_packages() {
