@@ -57,6 +57,8 @@ if is_mac; then
 
     export CLICOLOR=1
     export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
+else
+    export TERM=xterm-256color
 fi
 
 if [ -f ~/.bash_aliases ]; then
