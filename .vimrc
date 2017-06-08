@@ -64,7 +64,7 @@ set termencoding=utf-8
 set wildmenu
 set wildchar=<Tab>
 set wildmode=list:longest
-set wildignore+=*.pyc,.hg,.git,.svn,*/tmp/*,*.so,*.swp,*.zip,*/node_modules/*
+set wildignore+=*.pyc,.hg,.git,.svn,*/tmp/*,*.so,*.swp,*.zip,*/node_modules/*,*/env/*
 
 " Mouse options
 set mouse=a
