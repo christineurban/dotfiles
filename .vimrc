@@ -26,6 +26,7 @@ call vundle#end()
 let g:github_user="booleangate"
 let g:syntastic_javascript_checkers=['eslint']
 let g:ctrlp_working_path_mode = 'ra'
+let g:rehash256 = 1
 set completeopt-=preview
 
 
