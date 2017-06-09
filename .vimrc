@@ -24,6 +24,16 @@ call vundle#end()
 " Plugin config
 let g:github_user="booleangate"
 let g:syntastic_javascript_checkers=['eslint']
+
+if filereadable('env/bin/python')
+    let g:syntastic_python_python_exec = 'env/bin/python'
+    let g:syntastic_python_flake8_exec = 'env/bin/python'
+elseif filereadable('python3')
+    let g:syntastic_python_python_exec = 'env/bin/python'
+    let g:syntastic_python_flake8_exec = 'python3'
+endif
+let g:syntastic_python_flake8_args = ['-m', 'flake8']
+
 let g:ctrlp_working_path_mode = 'ra'
 let g:rehash256 = 1
 set completeopt-=preview
