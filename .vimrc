@@ -56,7 +56,10 @@ set title
 
 " Turn on syntax highlighting
 syntax on
-colorscheme molokai
+
+if !empty(glob('~/.vim/bundle/molokai'))
+    colorscheme molokai
+endif
 
 " Utility features
 set ruler
