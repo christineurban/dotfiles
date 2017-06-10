@@ -1,4 +1,7 @@
-# ~/.screenrc
+# 256 colors in screen
+attrcolor b ".I"
+termcapinfo xterm 'Co#256:AB=\E[48;5;%dm:AF=\E38;5;%dm'
+defbce "on"
  
 # no annoying audible bell
 vbell off
