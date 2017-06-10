@@ -1,9 +1,7 @@
-# ~/.bashrc: executed by bash(1) for non-login shells.
-# see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
-# for examples
-
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
+
+. ~/.bash_functions
 
 # don't put duplicate lines in the history. See bash(1) for more options
 # ... or force ignoredups and ignorespace
@@ -28,27 +26,6 @@ xterm*|rxvt*)
     ;;
 esac
 
-is_mac() {
-    if [[ "$OSTYPE" == "darwin"* ]]; then
-		return 0
-	fi
-
-	return 1
-}
-
-is_ubuntu() {
-    if [[ `uname -a | grep -i ubuntu | wc -l`  -gt 0 ]]; then
-        return 0
-    fi
-
-    return 1
-}
-
-git_key() {
-    eval `ssh-agent -s`
-    ssh-add -k ~/.ssh/id_github
-}
-
 if is_mac; then
     # General auto-complete
     if [ -f `brew --prefix`/etc/bash_completion ]; then
@@ -63,10 +40,6 @@ fi
 
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
-fi
-
-if [ -f ~/.bash_functions ]; then
-    . ~/.bash_functions
 fi
 
 if [ -f ~/.bash_local ]; then

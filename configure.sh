@@ -1,10 +1,6 @@
-has_bin() {
-    if command -v $1 >/dev/null; then
-        return 0
-    fi
+#!/bin/bash
 
-    return 1
-}
+. ~/.bash_functions
 
 configure_deps() {
     if [ is_mac ]; then
