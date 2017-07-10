@@ -6,6 +6,7 @@ else
     alias oproxy='open /Applications/Royal\ TSX.app/ & haproxy -d -f ~/.raxvm/haproxy.conf'
 fi
 
+alias git-key='eval "$(ssh-agent -s)";ssh-add ~/.ssh/id_github'
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
