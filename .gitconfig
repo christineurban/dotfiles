@@ -1,5 +1,6 @@
 [alias]
     ci = commit
+    cia = commit -a --amend
     cif = "!git ci --fixup HEAD"
     cifa = "!git ci -a --fixup HEAD"
     co = checkout
@@ -21,7 +22,6 @@
     fap = fetch --all -p
 
     b = branch
-    bl = branch -l
     bd = branch -d
     bD = branch -D
 
