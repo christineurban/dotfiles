@@ -1,40 +1,40 @@
 [alias]
-    ci = commit
-    cia = commit -a --amend
-    cif = "!git ci --fixup HEAD"
-    cifa = "!git ci -a --fixup HEAD"
+    aa = add -A
     co = checkout
+    cp = cherry-pick
     st = status
 
-    cp = cherry-pick
+    b = branch
+    bd = branch -d
+    bD = branch -D
+
+    ci = commit
+    ciam = commit --amend
+    ciaam = commit -a --amend
+    cif = "!git ci --fixup HEAD"
+    cifa = "!git ci -a --fixup HEAD"
 
     d = diff
     dc = diff --cached
     dh = diff HEAD~1
     dw = diff -w
 
-    aa = add -A
-
-    p = pull
-
     f = fetch
     fp = fetch -p
     fap = fetch --all -p
 
-    b = branch
-    bd = branch -d
-    bD = branch -D
-
-    lm = log master..
     l1 = log --oneline                                                                                                                                                                                                                                   
+    l1b = "!git log --oneline $(git merge-base HEAD @{-1}).."
     l1m = log --oneline master..
 
-    r = rebase
-    rb = "!git rebase -i $(git merge-base HEAD @{-1})"
-    rba = "!git rebase -i $(git merge-base HEAD @{-1}) --autosquash"
+    p = push
+    pf = push -f
+
+    r = "!git rebase -i $(git merge-base HEAD @{-1})"
+    ras = "!git rebase -i $(git merge-base HEAD @{-1}) --autosquash"
     rc = rebase --continue
+    raac = "!git aa; git rc"
     ra = rebase --abort
-    aarc = "!git aa; git rc"
                         
 [user]
 	name = Justin Johnson
