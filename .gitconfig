@@ -25,7 +25,6 @@
 
     l1 = log --oneline                                                                                                                                                                                                                                   
     l1b = "!git log --oneline $(git merge-base HEAD @{-1}).."
-    l1m = log --oneline master..
 
     p = push
     pf = push -f
