@@ -46,15 +46,27 @@ if [ -f ~/.bash_local ]; then
     . ~/.bash_local
 fi
 
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"  # This loads RVM into a shell session.
-
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-PATH=$PATH:$HOME/.bin
-
-
 export EDITOR=vim
 
+PATH=$PATH:$HOME/.bin
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+# python version manager
+if [ -d ~/.pyenv ]; then
+    export PATH="$HOME/.pyenv/bin:$PATH"
+fi
+has_bin 'pyenv' && eval "$(pyenv init -)"
+
+# ruby version manager
+if [ -d ~/.rvm ]; then
+    source "$HOME/.rvm/scripts/rvm"
+    PATH=$PATH:$HOME/.rvm/bin
+fi
+
+# node version manager
+if [ -d ~/.nvm ]; then
+    export NVM_DIR="$HOME/.nvm"
+    source "$NVM_DIR/nvm.sh"
+fi
+
+# other crap
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

@@ -3,14 +3,25 @@
 . ~/.bash_functions
 
 configure_deps() {
-    if [ is_mac ]; then
+    if is_mac; then
         if ! has_bin 'brew'; then
             /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
         fi
 
-        if ! has_bin 'node'; then
-            brew install node
+        has_bin 'node' || brew install node
+        has_bin 'pyenv' || brew install pyenv
+    else
+        if [ ! -d ~/.pyenv ]; then
+            curl -L https://raw.githubusercontent.com/pyenv/pyenv-installer/master/bin/pyenv-installer | bash
         fi
+    fi
+
+    if has_bin 'pyenv'; then
+        pyenv install -s 2.7.9
+        pyenv install -s 3.3.3
+        pyenv install -s 3.6.3
+        pyenv rehash
+        eval "$(pyenv init -)"
     fi
 }
 
