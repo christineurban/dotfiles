@@ -10,6 +10,10 @@ configure_deps() {
 
         has_bin 'node' || brew install node
         has_bin 'pyenv' || brew install pyenv
+
+        if [ ! -d /usr/local/opt/coreutils ]; then
+            brew install coreutils
+        fi
     else
         if [ ! -d ~/.pyenv ]; then
             curl -L https://raw.githubusercontent.com/pyenv/pyenv-installer/master/bin/pyenv-installer | bash

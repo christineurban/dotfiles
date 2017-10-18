@@ -50,6 +50,12 @@ export EDITOR=vim
 
 PATH=$PATH:$HOME/.bin
 
+# coreutils 
+if [ -d /usr/local/opt/coreutils/ ]; then
+    PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+    MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
+fi
+
 # python version manager
 if [ -d ~/.pyenv ]; then
     export PATH="$HOME/.pyenv/bin:$PATH"
