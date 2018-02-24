@@ -1,8 +1,5 @@
 [alias]
     aa = add -A
-    co = checkout
-    cp = cherry-pick
-    st = status
 
     b = branch
     bd = branch -d
@@ -13,6 +10,11 @@
     ciaa = commit -a --amend
     cif = "!git ci --fixup HEAD"
     cifa = "!git ci -a --fixup HEAD"
+
+    co = checkout
+    com = checkout master
+
+    cp = cherry-pick
 
     d = diff
     dc = diff --cached
@@ -34,6 +36,8 @@
     rc = rebase --continue
     raac = "!git aa; git rc"
     ra = rebase --abort
+
+    st = status
                         
 [user]
 	name = Justin Johnson
