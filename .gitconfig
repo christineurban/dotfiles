@@ -1,7 +1,7 @@
 [alias]
     aa = add -A
 
-    b = branch
+    br = branch
     bd = branch -d
     bD = branch -D
 
@@ -40,7 +40,7 @@
     st = status
                         
 [user]
-	name = Justin Johnson
-	email = booleangate@gmail.com
+	name = Christine Urban
+	email = christineurbansf@gmail.com
 [push]
 	default = simple
