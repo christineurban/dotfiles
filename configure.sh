@@ -33,9 +33,6 @@ configure_git() {
         echo 'Install ~/.ssh/id_github first'
         exit
     fi
-
-    eval `ssh-agent -s`
-    ssh-add -k ~/.ssh/id_github
 }
 
 configure_npm_packages() {
@@ -49,7 +46,6 @@ configure_vim() {
     mkdir -p ~/.vim/colors
     install_vim_vundle
     vim +PluginInstall +qall
-    install_vim_ycm
 }
 
 install_vim_vundle() {
@@ -57,25 +53,6 @@ install_vim_vundle() {
     cd ~/.vim/bundle/Vundle.vim
     git pull
     cd -
-}
-
-install_vim_ycm() {
-    ## see https://github.com/Valloric/YouCompleteMe#full-installation-guide
-    # Uncomment this business if you need C-family auto-completion
-    if ! command -v cmake >/dev/null; then
-        if is_mac; then
-            brew install cmake
-        else
-            sudo apt-get install cmake
-        fi
-    fi
-    #mkdir /tmp/ycm_build
-    #cd /tmp/ycm_build
-    #cmake -G "Unix Makefiles" . ~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp
-
-    # JavaScript
-    ~/.vim/bundle/YouCompleteMe/install.py  --tern-completer
-    cd ~
 }
 
 configure_deps
