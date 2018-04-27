@@ -9,7 +9,7 @@ call vundle#begin()
 
 Plugin 'gmarik/Vundle.vim'
 Plugin 'scrooloose/syntastic'
-Plugin 'tomasr/molokai'
+Plugin 'aereal/vim-colors-japanesque'
 Plugin 'gko/vim-coloresque'
 Plugin 'groenewege/vim-less.git'
 Plugin 'ctrlpvim/ctrlp.vim'
@@ -57,8 +57,8 @@ set title
 " Turn on syntax highlighting
 syntax on
 
-if !empty(glob('~/.vim/bundle/molokai'))
-    colorscheme molokai
+if !empty(glob('~/.vim/bundle/vim-colors-japanesque'))
+    colorscheme japanesque
 endif
 
 " Utility features
