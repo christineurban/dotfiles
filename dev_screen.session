@@ -1,14 +1,13 @@
 multiuser on
 acladd blamar
-acladd curban
+acladd jjohnson
 acladd jfaulkner
 acladd jmorgan
 acladd jsleppy
 acladd lmcculley
 acladd kpfab
 acladd mtaczak
-acladd mwiczer
-chdir /home/jjohnson/dev
+chdir /home/curban/dev
 
 select 0
 title "panel"
@@ -42,7 +41,7 @@ screen
 
 screen
 select 9
-title "data"
+title "db"
 
 screen
 select 10
@@ -51,5 +50,7 @@ title "connect"
 screen
 select 11
 title "vpos"
+
+screen
 
 select 0
