@@ -1,0 +1,55 @@
+multiuser on
+acladd blamar
+acladd curban
+acladd jfaulkner
+acladd jmorgan
+acladd jsleppy
+acladd lmcculley
+acladd kpfab
+acladd mtaczak
+acladd mwiczer
+chdir /home/jjohnson/dev
+
+select 0
+title "panel"
+
+screen
+select 1
+title "proxy"
+
+screen
+select 2
+title "api"
+
+screen
+select 3
+title "tasks"
+
+screen
+select 4
+title "mp-ui"
+
+screen
+select 5
+title "mp-api"
+
+screen
+select 6
+title "setup"
+
+screen
+screen
+
+screen
+select 9
+title "data"
+
+screen
+select 10
+title "connect"
+
+screen
+select 11
+title "vpos"
+
+select 0
