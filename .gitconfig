@@ -21,7 +21,7 @@
     dh = diff HEAD~1
     dw = diff -w
 
-    f = fetch
+    f = fetch -p --all --tags
     fp = fetch -p
     fap = fetch --all -p
 
@@ -42,5 +42,15 @@
 [user]
 	name = Christine Urban
 	email = christineurbansf@gmail.com
+
 [push]
 	default = simple
+
+[commit]
+    template = /Users/lmcculley/.stCommitMsg
+
+[fetch]
+    prune = true
+
+[pull]
+    rebase = true
