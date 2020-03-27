@@ -25,7 +25,7 @@
     fp = fetch -p
     fap = fetch --all -p
 
-    l1 = log --oneline                                                                                                                                                                                                                                   
+    l1 = log --oneline
     l1b = "!git log --oneline $(git merge-base HEAD @{-1}).."
 
     p = push
@@ -38,16 +38,13 @@
     ra = rebase --abort
 
     st = status
-                        
+
 [user]
 	name = Christine Urban
 	email = christineurbansf@gmail.com
 
 [push]
 	default = simple
-
-[commit]
-    template = /Users/lmcculley/.stCommitMsg
 
 [fetch]
     prune = true

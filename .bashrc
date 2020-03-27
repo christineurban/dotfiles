@@ -50,7 +50,7 @@ export EDITOR=vim
 
 PATH=$PATH:$HOME/.bin
 
-# coreutils 
+# coreutils
 if [ -d /usr/local/opt/coreutils/ ]; then
     PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
     MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
@@ -83,3 +83,9 @@ export PS1="\u@\h \[\033[32m\]\w\[\033[33m\]\$(parse_git_branch)\[\033[00m\] $ "
 # other crap
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 export PATH=$PATH:/usr/local/opt/go/libexec/bin
+
+export GOPATH=$HOME/go
+export PATH=$PATH:$(go env GOPATH)/bin
+export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
+
+shopt -s dotglob
