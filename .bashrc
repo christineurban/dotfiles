@@ -89,3 +89,7 @@ shopt -s dotglob
 eval $(thefuck --alias)
 
 export PATH=$PATH:/Users/christineurban/.npm-packages/bin
+
+. $(brew --prefix asdf)/asdf.sh
+
+. /usr/local/opt/asdf/etc/bash_completion.d/asdf.bash

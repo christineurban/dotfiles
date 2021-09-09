@@ -41,7 +41,7 @@
 
 [user]
 	name = Christine Urban
-	email = christineurbansf@gmail.com
+	email = christine.urban@pepsico.com
 
 [push]
 	default = simple
@@ -51,3 +51,9 @@
 
 [pull]
     rebase = true
+[core]
+	ignorecase = false
+
+# https://www.erikschierboom.com/2020/02/17/cleaning-up-local-git-branches-deleted-on-a-remote/
+[alias]
+  gone = ! "git fetch -p && git for-each-ref --format '%(refname:short) %(upstream:track)' | awk '$2 == \"[gone]\" {print $1}' | xargs -r git branch -D"
