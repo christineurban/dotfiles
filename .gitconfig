@@ -39,6 +39,8 @@
 
     st = status
 
+    rbm = rebase master
+
 [user]
 	name = Christine Urban
 	email = christine.urban@pepsico.com

@@ -20,8 +20,15 @@ alias sudo='sudo '
 # function c() { curl -vvv $@; echo; }
 
 alias rimraf='rm -rf node_modules && npm i'
+alias nuke='rm -rf node_modules && rm package-lock.json && npm i'
 # https://www.erikschierboom.com/2020/02/17/cleaning-up-local-git-branches-deleted-on-a-remote/
 alias gone='git for-each-ref --format "%(refname:short) %(upstream:track)" refs/heads'
+
+# https://stackoverflow.com/questions/9933325/is-there-a-way-of-having-git-show-lines-added-lines-changed-and-lines-removed
+# ex: diff <branch-to-compare-with>
+# ex; diff master
+alias diff="git diff --shortstat"
+alias longdiff="git diff --stat"
 
 alias caf1='caffeinate -dimst 3600 &'
 alias caf2='caffeinate -dimst 7200 &'
@@ -39,19 +46,54 @@ alias runps='nx serve pantryshop'
 alias runb2b='nx serve b2b-chicago'
 alias runtz='nx serve gatorade-teamzone'
 alias runss='nx serve sodastream'
+alias runrs='nx serve rockstar-energy'
+alias runadmin='nx serve admin-panel'
 
-alias testco='cd ~/src/pepdirect-frontends && nx test checkout-portal-frontend-v2 --skip-nx-cache'
-alias testps='cd ~/src/pepdirect-frontends && nx test pantryshop --skip-nx-cache'
-alias testb2b='cd ~/src/pepdirect-frontends && nx test b2b-chicago --skip-nx-cache'
-alias testtz='cd ~/src/pepdirect-frontends && nx test gatorade-teamzone --skip-nx-cache'
-alias testss='cd ~/src/pepdirect-frontends && nx test sodastream --skip-nx-cache'
+alias testco='cd ~/src/pepdirect-frontends && nx clear-cache && nx test checkout-portal-frontend-v2'
+alias testps='cd ~/src/pepdirect-frontends && nx clear-cache && nx test pantryshop'
+alias testb2b='cd ~/src/pepdirect-frontends && nx clear-cache && nx test b2b-chicago'
+alias testtz='cd ~/src/pepdirect-frontends && nx clear-cache && nx test gatorade-teamzone'
+alias testss='cd ~/src/pepdirect-frontends && nx clear-cache && nx test sodastream'
 
-alias testui='cd ~/src/pepdirect-frontends && nx test ui --skip-nx-cache'
-alias testadmin='cd ~/src/pepdirect-frontends && nx test admin-panel --skip-nx-cache'
-alias testall='testps -u && testb2b -u && testtz -u && testui && testco'
+alias testui='cd ~/src/pepdirect-frontends && nx clear-cache && nx test ui'
+alias testadmin='cd ~/src/pepdirect-frontends && nx clear-cache && nx test admin-panel'
+alias testall='nx clear-cache && nx -- run-many --target=test-coverage --all --parallel --maxParallel=3'
 
 # alias pullbe='cd ~/src/b2b-main/b2b-api-ex-v1 && git stash && git pull && git stash pop && cd ..'
 alias pullbe='cd ~/src/b2b-main/b2b-api-ex-v1 && git co master && git pull && cd ..'
-alias runbe='cd ~/src/b2b-main && ./setup-backend.sh'
+# alias runbe='cd ~/src/b2b-main && ./setup-backend.sh'
 
-alias elixir='cd ~/src/b2b-main/b2b-api-ex-v1 && iex -S mix phx.server'
+alias runbe='cd ~/src/b2b-main/b2b-api-ex-v1 && iex -S mix phx.server'
+
+alias codeps='nx run pantryshop:gql-codegen'
+alias codeb2b='nx run b2b-chicago:gql-codegen'
+alias codetz='nx run gatorade-teamzone:gql-codegen'
+alias codess='nx run sodastream:gql-codegen'
+alias codeco='nx run checkout-portal-frontend-v2:gql-codegen'
+alias codeadmin='nx run admin-panel:gql-codegen'
+
+alias cyps='nx e2e pantryshop-e2e -- --watch'
+alias cyb2b='nx e2e b2b-chicago-e2e -- --watch'
+alias cytz='nx e2e gatorade-teamzone-e2e -- --watch'
+alias cyss='nx e2e sodastream-e2e -- --watch'
+alias cyco='nx e2e checkout-portal-frontend-v2-e2e -- --watch'
+
+alias lintps='nx run pantryshop:lint --skip-nx-cache'
+alias lintb2b='nx run b2b-chicago:lint --skip-nx-cache'
+alias linttz='nx run gatorade-teamzone:lint --skip-nx-cache'
+alias lintss='nx run sodastream:lint --skip-nx-cache'
+alias lintco='nx run checkout-portal-frontend-v2:lint --skip-nx-cache'
+alias lintall="nx run-many --all --target=lint --skip-nx-cache"
+alias lintlib="nx run-many --target=lint --projects=shared-types,helpers,server,ui --skip-nx-cache"
+
+alias tscps='cd ~/src/pepdirect-frontends/apps/pantryshop && npx tsc && cd ~/src/pepdirect-frontends'
+alias tscb2b='cd ~/src/pepdirect-frontends/apps/b2b-chicago && npx tsc && cd ~/src/pepdirect-frontends'
+alias tsctz='cd ~/src/pepdirect-frontends/apps/gatorade-teamzone && npx tsc && cd ~/src/pepdirect-frontends'
+alias tscss='cd ~/src/pepdirect-frontends/apps/sodastream && npx tsc && cd ~/src/pepdirect-frontends'
+alias tscco='cd ~/src/pepdirect-frontends/apps/checkout-portal-frontend-v2 && npx tsc && cd ~/src/pepdirect-frontends'
+
+alias rmnxcache="rm -rf ./node_modules/.cache/nx"
+alias empty='git commit --allow-empty -m'
+
+alias sbui='nx run ui:storybook'
+alias sbco='nx run checkout-portal-frontend-v2:storybook'

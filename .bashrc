@@ -68,12 +68,6 @@ if [ -d ~/.rvm ]; then
     PATH=$PATH:$HOME/.rvm/bin
 fi
 
-# node version manager
-if [ -d ~/.nvm ]; then
-    export NVM_DIR="$HOME/.nvm"
-    source "$NVM_DIR/nvm.sh"
-fi
-
 # prompt
 parse_git_branch() {
      git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
@@ -93,3 +87,55 @@ export PATH=$PATH:/Users/christineurban/.npm-packages/bin
 . $(brew --prefix asdf)/asdf.sh
 
 . /usr/local/opt/asdf/etc/bash_completion.d/asdf.bash
+
+export BASH_COMPLETION_COMPAT_DIR="/usr/local/etc/bash_completion.d"
+[[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
+
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+
+# kubernetes
+kns(){
+    kubectl ns | grep $1
+}
+
+kset_ns(){
+    if [ "apps" = $1 ]; then
+        kubectl ns $1
+    else
+        kubectl ns $(kns $1)
+    fi
+}
+
+kget_pod(){
+    kubectl get pods | grep $1 | grep "Running" | head -n 1 | cut -d" " -f 1
+}
+
+kiex(){
+    if [[ ! -z $1 ]]; then
+        $(kset_ns $1)
+    fi
+    pod=$(kpod_iex)
+    kubectl exec -it $pod -- bin/platform_api remote
+}
+
+kpod_iex(){
+    kget_pod "b2b-api-ex-v1"
+}
+
+kpod_sql(){
+    kget_pod "postgresql-elixir"
+}
+
+kpsql(){
+    if [[ ! -z $1 ]]; then
+        $(kset_ns $1)
+    fi
+    pod=$(kpod_sql)
+    kubectl exec -it $pod -- /bin/bash
+}
+
+# node version manager
+if [ -d ~/.nvm ]; then
+    export NVM_DIR="$HOME/.nvm"
+    source "$NVM_DIR/nvm.sh"
+fi
