@@ -8,3 +8,11 @@ if [ -f '/Users/80258723/google-cloud-sdk/completion.bash.inc' ]; then . '/Users
 
 export PATH=/usr/local/bin/:$PATH
 source <(kubectl completion bash)
+# Add Visual Studio Code (code)
+export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+
+# node version manager
+if [ -d ~/.nvm ]; then
+    export NVM_DIR="$HOME/.nvm"
+    source "$NVM_DIR/nvm.sh"
+fi

@@ -133,9 +133,3 @@ kpsql(){
     pod=$(kpod_sql)
     kubectl exec -it $pod -- /bin/bash
 }
-
-# node version manager
-if [ -d ~/.nvm ]; then
-    export NVM_DIR="$HOME/.nvm"
-    source "$NVM_DIR/nvm.sh"
-fi
