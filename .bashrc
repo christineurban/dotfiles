@@ -91,6 +91,8 @@ export PATH=$PATH:/Users/christineurban/.npm-packages/bin
 export BASH_COMPLETION_COMPAT_DIR="/usr/local/etc/bash_completion.d"
 [[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
 
+[ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
+
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
 # kubernetes
@@ -133,3 +135,12 @@ kpsql(){
     pod=$(kpod_sql)
     kubectl exec -it $pod -- /bin/bash
 }
+
+export PATH=/usr/local/bin/:$PATH
+source <(kubectl completion bash)
+
+# node version manager
+if [ -d ~/.nvm ]; then
+    export NVM_DIR="$HOME/.nvm"
+    source "$NVM_DIR/nvm.sh"
+fi
