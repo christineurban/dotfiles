@@ -88,59 +88,79 @@ export PATH=$PATH:/Users/christineurban/.npm-packages/bin
 
 . /usr/local/opt/asdf/etc/bash_completion.d/asdf.bash
 
-export BASH_COMPLETION_COMPAT_DIR="/usr/local/etc/bash_completion.d"
-[[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
+# export BASH_COMPLETION_COMPAT_DIR="/usr/local/etc/bash_completion.d"
+# [[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
 
-[ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
+# [ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
+
+[[ -r "/opt/homebrew/etc/profile.d/bash_completion.sh" ]] && . "/opt/homebrew/etc/profile.d/bash_completion.sh"
 
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
 # kubernetes
-kns(){
-    kubectl ns | grep $1
-}
+# kns(){
+#     kubectl ns | grep $1
+# }
 
-kset_ns(){
-    if [ "apps" = $1 ]; then
-        kubectl ns $1
-    else
-        kubectl ns $(kns $1)
-    fi
-}
+# kset_ns(){
+#     if [ "apps" = $1 ]; then
+#         kubectl ns $1
+#     else
+#         kubectl ns $(kns $1)
+#     fi
+# }
 
-kget_pod(){
-    kubectl get pods | grep $1 | grep "Running" | head -n 1 | cut -d" " -f 1
-}
+# kget_pod(){
+#     kubectl get pods | grep $1 | grep "Running" | head -n 1 | cut -d" " -f 1
+# }
 
-kiex(){
-    if [[ ! -z $1 ]]; then
-        $(kset_ns $1)
-    fi
-    pod=$(kpod_iex)
-    kubectl exec -it $pod -- bin/platform_api remote
-}
+# kiex(){
+#     if [[ ! -z $1 ]]; then
+#         $(kset_ns $1)
+#     fi
+#     pod=$(kpod_iex)
+#     kubectl exec -it $pod -- bin/platform_api remote
+# }
 
-kpod_iex(){
-    kget_pod "b2b-api-ex-v1"
-}
+# kpod_iex(){
+#     kget_pod "b2b-api-ex-v1"
+# }
 
-kpod_sql(){
-    kget_pod "postgresql-elixir"
-}
+# kpod_sql(){
+#     kget_pod "postgresql-elixir"
+# }
 
-kpsql(){
-    if [[ ! -z $1 ]]; then
-        $(kset_ns $1)
-    fi
-    pod=$(kpod_sql)
-    kubectl exec -it $pod -- /bin/bash
-}
+# kpsql(){
+#     if [[ ! -z $1 ]]; then
+#         $(kset_ns $1)
+#     fi
+#     pod=$(kpod_sql)
+#     kubectl exec -it $pod -- /bin/bash
+# }
 
-export PATH=/usr/local/bin/:$PATH
-source <(kubectl completion bash)
+# export PATH=/usr/local/bin/:$PATH
+# source <(kubectl completion bash)
 
 # node version manager
 if [ -d ~/.nvm ]; then
     export NVM_DIR="$HOME/.nvm"
     source "$NVM_DIR/nvm.sh"
 fi
+
+function fuck () {
+    TF_PYTHONIOENCODING=$PYTHONIOENCODING;
+    export TF_SHELL=bash;
+    export TF_ALIAS=fuck;
+    export TF_HISTORY=$(fc -ln -10);
+    export PYTHONIOENCODING=utf-8;
+    TF_CMD=$(
+        thefuck THEFUCK_ARGUMENT_PLACEHOLDER "$@"
+    ) && eval "$TF_CMD";
+    unset TF_HISTORY;
+    export PYTHONIOENCODING=$TF_PYTHONIOENCODING;
+    history -s $TF_CMD;
+}
+
+export PATH="$HOME/.yarn/bin:$PATH"
+
+export PATH=~/.asdf/shims:$PATH

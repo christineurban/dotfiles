@@ -1,25 +1,7 @@
 set nocp
 set directory=~/.vim/tmp
 set backupskip=/tmp/*,/private/tmp/*
-
-" Install plugins
-filetype off
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-Plugin 'gmarik/Vundle.vim'
-Plugin 'scrooloose/syntastic'
-Plugin 'tomasr/molokai'
-Plugin 'gko/vim-coloresque'
-Plugin 'groenewege/vim-less.git'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'othree/html5.vim'
-Plugin 'airblade/vim-gitgutter'
-Bundle 'mattn/webapi-vim'
-Bundle 'mattn/gist-vim'
-Bundle 'nvie/vim-flake8'
-
-call vundle#end()
+set directory=~/.vim-swap/
 
 " Plugin config
 let g:github_user="booleangate"
