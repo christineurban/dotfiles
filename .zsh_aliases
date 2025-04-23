@@ -1,0 +1,142 @@
+########################################
+# Aliases
+########################################
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
+alias l='ls -l'
+alias la='l -a'
+alias v='vim'
+alias tf='tail -f'
+# Enables alias expansion while using sudo
+alias sudo='sudo '
+
+alias rimraf='rm -rf node_modules && npm i'
+# alias nuke='rm -rf node_modules && rm package-lock.json && npm i'
+alias nuke='cd ~/src/pepdirect/sites && rm -rf node_modules && yarn install && cd ~/src/pepdirect'
+# https://www.erikschierboom.com/2020/02/17/cleaning-up-local-git-branches-deleted-on-a-remote/
+alias gone='git for-each-ref --format "%(refname:short) %(upstream:track)" refs/heads'
+alias aliases='code ~/.zshrc'
+
+# https://stackoverflow.com/questions/9933325/is-there-a-way-of-having-git-show-lines-added-lines-changed-and-lines-removed
+# ex: diff <branch-to-compare-with>
+# ex; diff master
+alias diff="git diff --shortstat"
+alias longdiff="git diff --stat"
+
+alias caf1='caffeinate -dimst 3600 &'
+alias caf2='caffeinate -dimst 7200 &'
+alias caf3='caffeinate -dimst 10800 &'
+alias caf4='caffeinate -dimst 14400 &'
+alias caf5='caffeinate -dimst 18000 &'
+alias caf6='caffeinate -dimst 21600 &'
+alias caf7='caffeinate -dimst 25200 &'
+alias caf8='caffeinate -dimst 28800 &'
+alias caf9='caffeinate -dimst 32400 &'
+alias caf10='caffeinate -dimst 36000 &'
+
+alias runco='cd ~/src/pepdirect/sites && yarn run nx serve checkout-portal-frontend-v2 && cd ~/src/pepdirect'
+alias runps='cd ~/src/pepdirect/sites && yarn run nx serve pantryshop && cd ~/src/pepdirect'
+alias runb2b='cd ~/src/pepdirect/sites && yarn run nx serve b2b-chicago && cd ~/src/pepdirect'
+alias runtz='cd ~/src/pepdirect/sites && yarn run nx serve gatorade-teamzone && cd ~/src/pepdirect'
+alias runrs='cd ~/src/pepdirect/sites && yarn run nx serve rockstar-energy && cd ~/src/pepdirect'
+alias runadmin='cd ~/src/pepdirect/sites && yarn run nx serve admin-panel && cd ~/src/pepdirect'
+
+alias testco='cd ~/src/pepdirect/sites && yarn nx clear-cache && yarn nx run checkout-portal-frontend-v2:test-coverage --clearCache=true && yarn nx test checkout-portal-frontend-v2 && cd ~/src/pepdirect'
+alias testps='cd ~/src/pepdirect/sites && yarn nx clear-cache && yarn nx run pantryshop:test-coverage --clearCache=true && yarn nx test pantryshop && cd ~/src/pepdirect'
+alias testb2b='cd ~/src/pepdirect/sites && yarn nx clear-cache && yarn nx run b2b-chicago:test-coverage --clearCache=true && yarn nx test b2b-chicago && cd ~/src/pepdirect'
+alias testtz='cd ~/src/pepdirect/sites && yarn nx clear-cache && yarn nx run gatorade-teamzone:test-coverage --clearCache=true && yarn nx test gatorade-teamzone && cd ~/src/pepdirect'
+alias testrs='cd ~/src/pepdirect/sites && yarn nx clear-cache && yarn nx run rockstar-energy:test-coverage --clearCache=true && yarn nx test rockstar-energy && cd ~/src/pepdirect'
+
+alias testui='cd ~/src/pepdirect/sites && yarn nx clear-cache && yarn nx run ui:test-coverage --clearCache=true && yarn nx test ui && cd ~/src/pepdirect'
+alias testv3='cd ~/src/pepdirect/sites && yarn nx clear-cache && yarn nx run v3:test-coverage --clearCache=true && yarn nx test v3 && cd ~/src/pepdirect'
+alias testv2='cd ~/src/pepdirect/sites && yarn nx clear-cache && yarn nx run v2:test-coverage --clearCache=true && yarn nx test v2 && cd ~/src/pepdirect'
+alias testadmin='cd ~/src/pepdirect/sites && yarn nx clear-cache && yarn nx run admin-panel:test-coverage --clearCache=true && yarn nx test admin-panel && cd ~/src/pepdirect'
+alias testallold='cd ~/src/pepdirect/sites && yarn nx clear-cache && yarn nx -- run-many --target=test-coverage --all --parallel --maxParallel=3 && cd ~/src/pepdirect'
+
+alias runbe='cd ~/src/pepdirect/platform && iex -S mix phx.server'
+
+alias codeps='cd ~/src/pepdirect/sites && yarn nx run pantryshop:gql-codegen && cd ~/src/pepdirect'
+alias codeb2b='cd ~/src/pepdirect/sites && yarn nx run b2b-chicago:gql-codegen && cd ~/src/pepdirect'
+alias codetz='cd ~/src/pepdirect/sites && yarn nx run gatorade-teamzone:gql-codegen && cd ~/src/pepdirect'
+alias coders='cd ~/src/pepdirect/sites && yarn nx run rockstar-energy:gql-codegen && cd ~/src/pepdirect'
+alias codeco='cd ~/src/pepdirect/sites && yarn nx run checkout-portal-frontend-v2:gql-codegen && cd ~/src/pepdirect'
+alias codecov3='cd ~/src/pepdirect/sites && yarn nx run checkout-portal-frontend-v2:gql-codegen-v3 && cd ~/src/pepdirect'
+alias codeadmin='cd ~/src/pepdirect/sites && yarn nx run admin-panel:gql-codegen && cd ~/src/pepdirect'
+alias codeall='cd ~/src/pepdirect/sites && yarn nx run pantryshop:gql-codegen && yarn nx run b2b-chicago:gql-codegen && yarn nx run gatorade-teamzone:gql-codegen && yarn nx run sodastream:gql-codegen && yarn nx run rockstar-energy:gql-codegen && yarn nx run checkout-portal-frontend-v2:gql-codegen && yarn nx run checkout-portal-frontend-v2:gql-codegen-v3 && yarn nx run gatorade-microsite:gql-codegen && cd ~/src/pepdirect'
+alias codeui='cd ~/src/pepdirect/sites && yarn nx run ui:gql-codegen && cd ~/src/pepdirect'
+
+alias e2e-ps='cd ~/src/pepdirect/sites && yarn run e2e-local-pantryshop && cd ~/src/pepdirect'
+alias e2e-b2b='cd ~/src/pepdirect/sites && yarn run e2e-local-pepsicoshop && cd ~/src/pepdirect'
+alias e2e-tz='cd ~/src/pepdirect/sites && yarn run e2e-local-teamzone && cd ~/src/pepdirect'
+alias e2e-rs='cd ~/src/pepdirect/sites && yarn run e2e-local-rockstar && cd ~/src/pepdirect'
+
+alias e2e-ps-watch='cd ~/src/pepdirect/sites && yarn run e2e-local-pantryshop-watch && cd ~/src/pepdirect'
+alias e2e-b2b-watch='cd ~/src/pepdirect/sites && yarn run e2e-local-pepsicoshop-watch && cd ~/src/pepdirect'
+alias e2e-tz-watch='cd ~/src/pepdirect/sites && yarn run e2e-local-teamzone-watch && cd ~/src/pepdirect'
+alias e2e-rs-watch='cd ~/src/pepdirect/sites && yarn run e2e-local-rockstar-watch && cd ~/src/pepdirect'
+
+alias e2eco-ps='cd ~/src/pepdirect/sites && CYPRESS_WEB=http://secure.pantryshoplocal.com:3001 CYPRESS_WEB_API=http://api.pantryshoplocal.com:4000 yarn run nx run checkout-portal-frontend-v2-e2e:e2e && cd ~/src/pepdirect'
+alias e2eco-b2b='cd ~/src/pepdirect/sites && CYPRESS_WEB=http://secure.pepsicoshoplocal.com:3001 CYPRESS_WEB_API=http://api.pepsicoshoplocal.com:4000 yarn run nx run checkout-portal-frontend-v2-e2e:e2e && cd ~/src/pepdirect',
+alias e2eco-tz='cd ~/src/pepdirect/sites && CYPRESS_WEB=http://secure.gatoradeteamzonelocal.com:3001 CYPRESS_WEB_API=http://api.gatoradeteamzonelocal.com:4000 yarn run nx run checkout-portal-frontend-v2-e2e:e2e && cd ~/src/pepdirect',
+alias e2eco-gcom='cd ~/src/pepdirect/sites && CYPRESS_WEB=http://secure.gatoradeshoplocal.com:3001 CYPRESS_WEB_API=http://api.gatoradeshoplocal.com:4000 yarn run nx run checkout-portal-frontend-v2-e2e:e2e && cd ~/src/pepdirect',
+alias e2eco-rse='cd ~/src/pepdirect/sites && CYPRESS_WEB=http://secure.rockstarenergylocal.com:3001 CYPRESS_WEB_API=http://api.rockstarenergylocal.com:4000 yarn run nx run checkout-portal-frontend-v2-e2e:e2e && cd ~/src/pepdirect',
+
+alias e2eco-ps-watch='cd ~/src/pepdirect/sites && CYPRESS_WEB=http://secure.pantryshoplocal.com:3001 CYPRESS_WEB_API=http://api.pantryshoplocal.com:4000 yarn run nx run checkout-portal-frontend-v2-e2e:e2e --watch=true && cd ~/src/pepdirect'
+alias e2eco-b2b-watch='cd ~/src/pepdirect/sites && CYPRESS_WEB=http://secure.pepsicoshoplocal.com:3001 CYPRESS_WEB_API=http://api.pepsicoshoplocal.com:4000 yarn run nx run checkout-portal-frontend-v2-e2e:e2e --watch=true && cd ~/src/pepdirect',
+alias e2eco-tz-watch='cd ~/src/pepdirect/sites && CYPRESS_WEB=http://secure.gatoradeteamzonelocal.com:3001 CYPRESS_WEB_API=http://api.gatoradeteamzonelocal.com:4000 yarn run nx run checkout-portal-frontend-v2-e2e:e2e --watch=true && cd ~/src/pepdirect',
+alias e2eco-gcom-watch='cd ~/src/pepdirect/sites && CYPRESS_WEB=http://secure.gatoradeshoplocal.com:3001 CYPRESS_WEB_API=http://api.gatoradeshoplocal.com:4000 yarn run nx run checkout-portal-frontend-v2-e2e:e2e --watch=true && cd ~/src/pepdirect',
+alias e2eco-rse-watch='cd ~/src/pepdirect/sites && CYPRESS_WEB=http://secure.rockstarenergylocal.com:3001 CYPRESS_WEB_API=http://api.rockstarenergylocal.com:4000 yarn run nx run checkout-portal-frontend-v2-e2e:e2e --watch=true && cd ~/src/pepdirect',
+
+alias lintps='cd ~/src/pepdirect/sites && yarn nx run pantryshop:lint --skip-nx-cache --fix --maxWarnings 0 && cd ~/src/pepdirect'
+alias lintb2b='cd ~/src/pepdirect/sites && yarn nx run b2b-chicago:lint --skip-nx-cache --fix --maxWarnings 0 && cd ~/src/pepdirect'
+alias linttz='cd ~/src/pepdirect/sites && yarn nx run gatorade-teamzone:lint --skip-nx-cache --fix --maxWarnings 0 && cd ~/src/pepdirect'
+alias lintrs='cd ~/src/pepdirect/sites && yarn nx run rockstar-energy:lint --skip-nx-cache --fix --maxWarnings 0 && cd ~/src/pepdirect'
+alias lintco='cd ~/src/pepdirect/sites && yarn nx run checkout-portal-frontend-v2:lint --skip-nx-cache --fix --maxWarnings 0 && cd ~/src/pepdirect'
+alias lintadmin='cd ~/src/pepdirect/sites && yarn nx run admin-panel:lint --skip-nx-cache --fix --maxWarnings 0 && cd ~/src/pepdirect'
+alias lintui='cd ~/src/pepdirect/sites && yarn nx run ui:lint --skip-nx-cache --fix --maxWarnings 0 && cd ~/src/pepdirect'
+alias lintv3='cd ~/src/pepdirect/sites && yarn nx run v3:lint --skip-nx-cache --fix --maxWarnings 0 && cd ~/src/pepdirect'
+alias lintv2='cd ~/src/pepdirect/sites && yarn nx run v2:lint --skip-nx-cache --fix --maxWarnings 0 && cd ~/src/pepdirect'
+
+alias lintall='cd ~/src/pepdirect/sites && yarn nx run-many --all --target=lint --skip-nx-cache --fix --maxWarnings 0 --exclude=pantryshop-e2e,b2b-chicago-e2e,gatorade-teamzone-e2e,rockstar-energy-e2e,checkout-portal-frontend-v2-e2e,admin-panel-e2e,gatorade-microsite,gatorade-microsite-e2e,helpers,shared-constants,shared-types,server && cd ~/src/pepdirect'
+alias lintlib='cd ~/src/pepdirect/sites && yarn nx run-many --target=lint --projects=shared-types,helpers,server,ui --skip-nx-cache --fix && cd ~/src/pepdirect'
+
+alias tscps='cd ~/src/pepdirect/sites/apps/pantryshop && npx tsc && cd ~/src/pepdirect'
+alias tscb2b='cd ~/src/pepdirect/sites/apps/b2b-chicago && npx tsc && cd ~/src/pepdirect'
+alias tsctz='cd ~/src/pepdirect/sites/apps/gatorade-teamzone && npx tsc && cd ~/src/pepdirect'
+alias tscrs='cd ~/src/pepdirect/sites/apps/rockstar-energy && npx tsc && cd ~/src/pepdirect'
+alias tscco='cd ~/src/pepdirect/sites/apps/checkout-portal-frontend-v2 && npx tsc && cd ~/src/pepdirect'
+alias tscadmin='cd ~/src/pepdirect/sites/apps/admin-panel && npx tsc && cd ~/src/pepdirect'
+alias tscui='cd ~/src/pepdirect/sites/libs/ui && npx tsc --build tsconfig.json && cd ~/src/pepdirect'
+alias tscv3='cd ~/src/pepdirect/sites/libs/v3 && npx tsc --build tsconfig.json && cd ~/src/pepdirect'
+alias tscv2='cd ~/src/pepdirect/sites/libs/v2 && npx tsc --build tsconfig.json && cd ~/src/pepdirect'
+
+alias rmnxcache="rm -rf ./node_modules/.cache/nx"
+alias empty='git commit --allow-empty -m'
+
+alias sbui='cd ~/src/pepdirect/sites && npx nx storybook ui && cd ~/src/pepdirect'
+alias sbv3='cd ~/src/pepdirect/sites && npx nx storybook v3 && cd ~/src/pepdirect'
+alias sbco='cd ~/src/pepdirect/sites && npx nx storybook checkout-portal-frontend-v2 && cd ~/src/pepdirect'
+alias sbrs='cd ~/src/pepdirect/sites && npx nx storybook rockstar-energy && cd ~/src/pepdirect'
+
+alias buildco='cd ~/src/pepdirect/sites && yarn nx build checkout-portal-frontend-v2 && cd ~/src/pepdirect'
+alias buildps='cd ~/src/pepdirect/sites && yarn nx build pantryshop && cd ~/src/pepdirect'
+alias buildb2b='cd ~/src/pepdirect/sites && yarn nx build b2b-chicago && cd ~/src/pepdirect'
+alias buildtz='cd ~/src/pepdirect/sites && yarn nx build gatorade-teamzone && cd ~/src/pepdirect'
+alias buildrs='cd ~/src/pepdirect/sites && yarn nx build rockstar-energy && cd ~/src/pepdirect'
+alias buildadmin='cd ~/src/pepdirect/sites && yarn nx build admin-panel && cd ~/src/pepdirect'
+
+alias testallps='testps && lintps && buildps && tscps'
+alias testallb2b='testb2b && lintb2b && buildb2b && tscb2b'
+alias testalltz='testtz && linttz && buildtz && tsctz'
+alias testallrs='testrs && lintrs && buildrs && tscrs'
+alias testallui='testui && lintui && tscui'
+alias testallv3='testv3 && lintv3 && tscv3'
+alias testallv2='testv2 && lintv2 && tscv2'
+alias testallco='testallv3 && testallui && testco && lintco && buildco && tscco'
+alias testall='testallv3 && testallui && testco && testps && testb2b && testtz && testrs'
+
+alias umbrella='cd ~/src/pepdirect/platform && mix gettext.extract.umbrella && cd -'
+alias umbrella2='cd ~/src/pepdirect/platform && mix gettext.merge $PWD/apps/translations/priv/gettext --no-fuzzy && cd -'
+
+alias seed='cd ~/src/pepdirect/platform && mix run ./apps/api_v1/priv/repo/seeds.exs && cd -'
